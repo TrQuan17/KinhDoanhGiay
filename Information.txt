@@ -2,6 +2,5 @@
 Trường Đại Học Bách Khoa Đà Nẵng
 Ngôn ngữ lập trình C#
 Cơ sở dữ liệu SQL Server
+<<<<<<< HEAD
 .NET framework 4.7.2
-
-Sửa để tạo branch git chơi
