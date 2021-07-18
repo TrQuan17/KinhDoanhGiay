@@ -1,0 +1,4 @@
+Đồ án môn học PBL3
+Trường Đại Học Bách Khoa Đà Nẵng
+Ngôn ngữ lập trình C#
+Cơ sở dữ liệu SQL Server
