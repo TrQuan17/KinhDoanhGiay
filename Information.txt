@@ -1,4 +1,5 @@
 Đồ án môn học PBL3
+Phần Mềm quản lý của hàng kinh doanh giày
 Trường Đại Học Bách Khoa Đà Nẵng
 Ngôn ngữ lập trình C#
 Cơ sở dữ liệu SQL Server
