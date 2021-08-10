@@ -94,12 +94,12 @@ namespace PBL3.DAL
                 return false;
             }
         }
-        public List<DonHangBan> Search_DAL(string name)
+        public List<DonHangBan> Search_DAL(string idnv)
         {
             List<DonHangBan> l = new List<DonHangBan>();
             string query = string.Format(
                 "select idban, idnv, idkh, ngayban, tongtienban from DonHangBan " +
-                "where idban like N'%{0}%'", name);
+                "where idnv like N'%{0}%'", idnv);
             foreach (DataRow i in DBHelper.Instance.GetReCords(query).Rows)
             {
                 l.Add(GetDonHangBan(i));

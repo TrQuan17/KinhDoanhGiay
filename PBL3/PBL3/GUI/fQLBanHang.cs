@@ -36,8 +36,7 @@ namespace PBL3.GUI
             txtSumPrice.Text = "";
             lsvShoesSelected.Items.Clear();
 
-            string[] tieuchi = { "ID", "Tên", "Size", "Số Lượng", "Đơn Giá" };
-            cbbSapXep.Items.AddRange(tieuchi);
+            
         }
         public void SetCBB()
         {
@@ -55,6 +54,8 @@ namespace PBL3.GUI
             {
                 cbbTenNV.Items.Add(new CBBItem { ID = i.IDNV, Name = i.TenNV });
             }
+            string[] tieuchi = { "ID", "Tên", "Size", "Số Lượng", "Đơn Giá" };
+            cbbSapXep.Items.AddRange(tieuchi);
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -66,8 +67,8 @@ namespace PBL3.GUI
             {
                 int id = dgvBanHang.SelectedRows[0].Index;
                 string IDGiay = dgvBanHang.Rows[id].Cells[0].Value.ToString();
-                int AmountShoesKS = (int)Convert.ToInt32(dgvBanHang.Rows[id].Cells[3].Value.ToString());
-                if (AmountShoesKS == 0) MessageBox.Show("Loại giày này đã hết", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                int AmountShoesKG = (int)Convert.ToInt32(dgvBanHang.Rows[id].Cells[3].Value.ToString());
+                if (AmountShoesKG == 0) MessageBox.Show("Loại giày này đã hết", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
                 {
                     ListViewItem item = lsvShoesSelected.FindItemWithText(IDGiay);
@@ -77,6 +78,7 @@ namespace PBL3.GUI
                         string NameShoes = dgvBanHang.Rows[id].Cells[1].Value.ToString();
                         string PriceShoes = dgvBanHang.Rows[id].Cells[4].Value.ToString();
                         string AmountShoes = "1";
+                        string SizeShoes = dgvBanHang.Rows[id].Cells[2].Value.ToString();
                         SumPriceShoes = (int)Convert.ToInt32(PriceShoes) * (int)Convert.ToInt32(AmountShoes);
                         string SumPriceShoesStr = SumPriceShoes.ToString();
                         ListViewItem lvi = new ListViewItem(IDGiay);
@@ -84,6 +86,7 @@ namespace PBL3.GUI
                         lvi.SubItems.Add(PriceShoes);
                         lvi.SubItems.Add(AmountShoes);
                         lvi.SubItems.Add(SumPriceShoesStr);
+                        lvi.SubItems.Add(SizeShoes);
                         lsvShoesSelected.Items.Add(lvi);
                         this.lsvShoesSelected.Items[0].Selected = true;
                     }
@@ -94,7 +97,7 @@ namespace PBL3.GUI
                         int OldAmount = (int)Convert.ToInt32(lvi.SubItems[3].Text);
                         int NewAmount = (int)Convert.ToInt32(lvi.SubItems[3].Text) + 1;
                         int NewSumPrice = (int)Convert.ToInt32(lvi.SubItems[4].Text) / OldAmount * NewAmount;
-                        if (NewAmount > AmountShoesKS)
+                        if (NewAmount > AmountShoesKG)
                         {
                             MessageBox.Show("Đã quá sô lượng giày đang có", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
@@ -137,6 +140,7 @@ namespace PBL3.GUI
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
+            
             string PhoneNumber = txtSDTKH.Text;
             string SumAmount = txtSumPrice.Text;
             CBBItem getIDNV = (CBBItem)(cbbTenNV.SelectedItem);
@@ -146,7 +150,7 @@ namespace PBL3.GUI
             string DatePay1 = string.Format("{0}-{1}-{2}", month, day, year);
             string DatePay2 = string.Format("{0}-{1}-{2}", day, month, year);
             if (PhoneNumber == "" || getIDNV == null) MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
+            else if (BLL_KhachHang.Instance.CheckSDT_BLL(PhoneNumber) == true)
             {
                 string IDKH = BLL_KhachHang.Instance.GetIDKHByPhone(PhoneNumber);
                 string IDNV = getIDNV.ID;
@@ -168,9 +172,12 @@ namespace PBL3.GUI
                     rowLV++;
                 }
                 GUI();
-                string notify = string.Format("Hóa đơn có:\n-Mã hóa đơn: {0}\n-Mã khách hàng: {1}\n-Số điện thoại: {2}\n-Tổng số tiền GD: {3} VNĐ\n-Thời gian:{4}\n\nĐÃ ĐƯỢC THANH TOÁN", IdBill, IDKH, PhoneNumber, SumAmount, DatePay2);
-                MessageBox.Show(notify, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                fHienThiHoaDon f = new fHienThiHoaDon(IdBill);
+                f.Show();
             }
+            else MessageBox.Show("Thông tin khách hàng không tồn tại !!!", "Warning",
+                MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -216,9 +223,9 @@ namespace PBL3.GUI
                     lbSDT.Text = "";
                     if (BLL_KhachHang.Instance.CheckSDT_BLL(sdt) == true)
                     {
-                        MessageBox.Show("thông tin khách hàng đã có ");
+                        MessageBox.Show("Thông tin khách hàng đã có ");
                     }
-                    else MessageBox.Show("không tìm thấy thông tin khách hàng ");
+                    else MessageBox.Show("Không tìm thấy thông tin khách hàng ");
                 }
             }
         }
@@ -287,8 +294,8 @@ namespace PBL3.GUI
             SumPay *= (100.0 - GiamGia) / 100;
 
             //CultureInfo culture = new CultureInfo("vi-VN");
-            string SumPayStr = SumPay.ToString(); //.ToString("c", culture);
-            txtSumPrice.Text = SumPayStr;
+            //.ToString("c", culture);
+            txtSumPrice.Text = SumPay.ToString();
         }
 
         private void dgvBanHang_MouseDoubleClick(object sender, MouseEventArgs e)

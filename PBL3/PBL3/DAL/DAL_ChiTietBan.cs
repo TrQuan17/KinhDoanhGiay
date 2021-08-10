@@ -59,7 +59,6 @@ namespace PBL3.DAL
             }
             return l;
         }
-
         public List<ChiTietBan> GetChiTietBanByIdBan(int IdBan)
         {
             List<ChiTietBan> l = new List<ChiTietBan>();

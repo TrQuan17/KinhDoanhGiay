@@ -21,7 +21,7 @@ namespace PBL3.GUI
         public void ShowHD()
         {  
             dgvHoaDon.DataSource = BLL_DonHangBan.Instance.GetAllDonHangBan_BLL();
-            dgvChiTietHoaDon.DataSource = BLL_ChiTietBan.Instance.GetAllChiTietBan_BLL();
+            //dgvChiTietHoaDon.DataSource = BLL_ChiTietBan.Instance.GetAllChiTietBan_BLL();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -61,7 +61,12 @@ namespace PBL3.GUI
             if (dgvHoaDon.SelectedRows.Count == 1)
             {
                 int IdBan = Convert.ToInt32(dgvHoaDon.SelectedRows[0].Cells["idban"].Value.ToString());
-                dgvChiTietHoaDon.DataSource = BLL_ChiTietBan.Instance.GetChiTietBanByIdBan_BLL(IdBan);
+                dgvChiTietHoaDon.DataSource = BLL_ThanhToan.Instance.GetThanhToansbyidban_BLL(IdBan);
+                dgvChiTietHoaDon.Columns["idban"].HeaderText = "Mã hóa đơn";
+                dgvChiTietHoaDon.Columns["namesp"].HeaderText = "Tên sản phẩm";
+                dgvChiTietHoaDon.Columns["soluongban"].HeaderText = "Số lượng bán";
+                dgvChiTietHoaDon.Columns["giaban"].HeaderText = "Giá bán";
+                dgvChiTietHoaDon.Columns["idsp"].HeaderText = "Mã sản phẩm";
             }
             else
             {
@@ -69,6 +74,16 @@ namespace PBL3.GUI
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            dgvHoaDon.DataSource = BLL_DonHangBan.Instance.Search_BLL(txtSearch.Text);
+            if(dgvHoaDon.Rows.Count == 0)
+            {
+                MessageBox.Show("Đối tượng bạn tìm không tồn tại !!!", "Warning",
+                   MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

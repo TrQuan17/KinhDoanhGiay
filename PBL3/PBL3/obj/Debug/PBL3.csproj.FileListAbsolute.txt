@@ -115,3 +115,4 @@ C:\Users\Admin\Downloads\PBL3\PBL3\obj\Debug\PBL3.GUI.fManHinhChinhUser.resource
 C:\Users\Admin\Downloads\PBL3\PBL3\obj\Debug\PBL3.GUI.fQuanLyTaiKhoan.resources
 C:\Users\Admin\Downloads\PBL3\PBL3\obj\Debug\PBL3.GUI.fThongTinNV_f3.resources
 C:\Users\Admin\Downloads\PBL3\PBL3\obj\Debug\PBL3.GUI.fWellcome.resources
+C:\Users\Admin\Downloads\PBL3\PBL3\obj\Debug\PBL3.GUI.fHienThiHoaDon.resources

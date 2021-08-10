@@ -85,5 +85,19 @@ namespace PBL3.BLL
             }
             return IDNV;
         }
+        public DonHangBan GetDonHangBanbyIDBan (int idban)
+        {
+            DonHangBan dhb = new DonHangBan();
+            foreach(DonHangBan i in GetAllDonHangBan_BLL())
+            {
+                if (i.IDBan == idban)
+                    dhb = i;
+            }
+            return dhb;
+        }
+        public List<DonHangBan> Search_BLL(string idnv)
+        {
+            return DAL_DonHangBan.Instance.Search_DAL(idnv);
+        }
     }
 }

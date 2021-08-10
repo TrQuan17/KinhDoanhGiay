@@ -63,6 +63,7 @@ namespace PBL3.GUI
             this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnDelete
             // 
@@ -113,7 +114,7 @@ namespace PBL3.GUI
             this.dgvChiTietHoaDon.Name = "dgvChiTietHoaDon";
             this.dgvChiTietHoaDon.RowHeadersWidth = 51;
             this.dgvChiTietHoaDon.RowTemplate.Height = 24;
-            this.dgvChiTietHoaDon.Size = new System.Drawing.Size(490, 433);
+            this.dgvChiTietHoaDon.Size = new System.Drawing.Size(520, 433);
             this.dgvChiTietHoaDon.TabIndex = 37;
             // 
             // btnShow
@@ -139,7 +140,7 @@ namespace PBL3.GUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::PBL3.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1060, 487);
+            this.ClientSize = new System.Drawing.Size(1083, 487);
             this.Controls.Add(this.btnShow);
             this.Controls.Add(this.dgvChiTietHoaDon);
             this.Controls.Add(this.txtSearch);
