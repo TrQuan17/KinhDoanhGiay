@@ -146,4 +146,3 @@ C:\Users\Admin\Desktop\GitHub\KinhDoanhGiay\PBL3\PBL3\obj\Debug\PBL3.csproj.Gene
 C:\Users\Admin\Desktop\GitHub\KinhDoanhGiay\PBL3\PBL3\obj\Debug\PBL3.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Desktop\GitHub\KinhDoanhGiay\PBL3\PBL3\obj\Debug\PBL3.exe
 C:\Users\Admin\Desktop\GitHub\KinhDoanhGiay\PBL3\PBL3\obj\Debug\PBL3.pdb
-C:\Users\Admin\Desktop\GitHub\KinhDoanhGiay\PBL3\PBL3\obj\Debug\PBL3.GUI.Form1.resources
