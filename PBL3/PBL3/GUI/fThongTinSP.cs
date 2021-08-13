@@ -64,6 +64,7 @@ namespace PBL3.GUI
         {
             fThongTinSP_f2 f = new fThongTinSP_f2(null);
             f.Show();
+            f.sd = new fThongTinSP_f2.ShowDelegate(ShowSP);
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -73,6 +74,7 @@ namespace PBL3.GUI
                 string IDSP = dgvSP.SelectedRows[0].Cells["idsp"].Value.ToString();
                 fThongTinSP_f2 f = new fThongTinSP_f2(IDSP);
                 f.Show();
+                f.sd = new fThongTinSP_f2.ShowDelegate(ShowSP);
             }
             else
             {

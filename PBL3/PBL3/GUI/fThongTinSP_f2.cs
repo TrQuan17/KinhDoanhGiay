@@ -14,8 +14,10 @@ namespace PBL3.GUI
 {
     public partial class fThongTinSP_f2 : Form
     {
+        public delegate void ShowDelegate();
+        public ShowDelegate sd { get; set; }
         public string IDSP { get; set; }
-        public string tenFile { get; set; }
+        
         public fThongTinSP_f2(string m)
         {
             InitializeComponent();
@@ -31,9 +33,11 @@ namespace PBL3.GUI
                 txtTenSP.Text = SP.TenSP;
                 txtSize.Text = SP.SizeSP.ToString();
                 txtDonGia.Text = SP.DonGiaSP.ToString();
+                txtSL.Text = SP.SoLuongSP.ToString();
                 txtIDSP.Enabled = false;
                 picSP.SizeMode = PictureBoxSizeMode.StretchImage;
                 picSP.ImageLocation = fChiTietThongTinSP.DuongDan + BLL_HinhAnhSanPham.Instance.GetLinkImageByIDSP(IDSP);
+                txtFileName.Text = BLL_HinhAnhSanPham.Instance.GetLinkImageByIDSP(IDSP);
             }
         }
         private void btnOK_Click(object sender, EventArgs e)
@@ -57,17 +61,19 @@ namespace PBL3.GUI
                     IDSP = txtIDSP.Text,
                     TenSP = txtTenSP.Text,
                     SizeSP = Convert.ToInt32(txtSize.Text),
-                    DonGiaSP = Convert.ToDouble(txtDonGia.Text)
+                    DonGiaSP = Convert.ToDouble(txtDonGia.Text),
+                    SoLuongSP = Convert.ToInt32(txtSL.Text)
                 };
                 HinhAnhSanPham ISP = new HinhAnhSanPham
                 {
                     IDSP = txtIDSP.Text,
-                    LinkImage = tenFile
+                    LinkImage = txtFileName.Text
                 };
                 bool check = BLL_SanPham.Instance.ExecuteDB_BLL(SP) && BLL_HinhAnhSanPham.Instance.ExecuteDB_BLL(ISP);
                 
                 if (check == true)
                 {
+                    sd();
                     this.Close();
                     MessageBox.Show("Đã Lưu !", "Information",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -101,8 +107,7 @@ namespace PBL3.GUI
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 picSP.ImageLocation = ofd.FileName;
-                tenFile = System.IO.Path.GetFileName(ofd.FileName);
-                textBox1.Text = tenFile;
+                txtFileName.Text = System.IO.Path.GetFileName(ofd.FileName);
             }
         }
         private void txtSo_KeyPress(object sender, KeyPressEventArgs e)

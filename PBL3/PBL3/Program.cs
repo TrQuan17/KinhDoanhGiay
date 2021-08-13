@@ -18,7 +18,7 @@ namespace PBL3
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fQLBanHang());
+            Application.Run(new fWellcome());
         }
     }
 }

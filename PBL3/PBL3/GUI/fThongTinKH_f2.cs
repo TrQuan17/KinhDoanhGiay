@@ -14,6 +14,8 @@ namespace PBL3.GUI
 {
     public partial class fThongTinKH_f2 : Form
     {
+        public delegate void ShowDelegate();
+        public ShowDelegate sd { get; set; }
         public string IDKH { get; set; }
         public fThongTinKH_f2(string m)
         {
@@ -60,6 +62,7 @@ namespace PBL3.GUI
                 bool check = BLL_KhachHang.Instance.ExecuteDB_BLL(KH);
                 if (check == true)
                 {
+                    sd();
                     this.Close();
                     MessageBox.Show("Đã Lưu !", "Information",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);

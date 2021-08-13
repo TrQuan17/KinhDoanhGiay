@@ -30,7 +30,6 @@ namespace PBL3.GUI
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -49,6 +48,7 @@ namespace PBL3.GUI
             this.lbIDKH = new System.Windows.Forms.Label();
             this.lbNgay = new System.Windows.Forms.Label();
             this.lbTongTien = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThanhToan)).BeginInit();
             this.SuspendLayout();
@@ -61,17 +61,6 @@ namespace PBL3.GUI
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(473, 43);
             this.panel1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(13, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(285, 22);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "CỬA HÀNG KINH DOANH GIÀY";
             // 
             // label2
             // 
@@ -254,6 +243,17 @@ namespace PBL3.GUI
             this.lbTongTien.Size = new System.Drawing.Size(22, 15);
             this.lbTongTien.TabIndex = 23;
             this.lbTongTien.Text = ". . .";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(13, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(285, 22);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "CỬA HÀNG KINH DOANH GIÀY";
             // 
             // fHienThiHoaDon
             // 

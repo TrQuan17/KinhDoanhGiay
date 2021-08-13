@@ -186,7 +186,10 @@ namespace PBL3.GUI
             }
             else
             {
-
+                gvSP.ClearSelection();
+                cbbSP.SelectedIndex = -1;
+                numUDSL.Value = 0;
+                txtGiaNhap.Text = "";
                 foreach (DataGridViewRow i in data)
                 {
                     IDNhap_Del.Add(int.Parse(i.Cells["idnhap"].Value.ToString()));
@@ -211,10 +214,7 @@ namespace PBL3.GUI
                     }
 
                 }
-                gvSP.DataSource = new List<ChiTietNhap>();
-                cbbSP.SelectedIndex = -1;
-                numUDSL.Value = 0;
-                lbDonGia.Text = "";
+     
             }
         }
         private void btnSearch_Click(object sender, EventArgs e)
@@ -243,14 +243,14 @@ namespace PBL3.GUI
 
                 int idNhap = int.Parse(txtIDNhap.Text);
                 string idSp = ((CBBItem)cbbSP.SelectedItem).ID ;
-                double donGia = Convert.ToDouble(lbDonGia.Text);
+                double donGia = Convert.ToDouble(txtGiaNhap.Text);
                 int soLuong = int.Parse(numUDSL.Value.ToString());
                 if (soLuong < 1)
                 {
                     MessageBox.Show("Cung cấp thông tin không hợp lệ.");
                     return;
                 }   
-                donGia = double.Parse(lbDonGia.Text);
+                donGia = double.Parse(txtGiaNhap.Text);
                 if (idSp != "")
                 {
                     ChiTietNhap chiTietNhap = new ChiTietNhap();
@@ -440,11 +440,7 @@ namespace PBL3.GUI
             }
         }
 
-        private void cbbSP_SelectedValueChanged(object sender, EventArgs e)
-        {
-            string idsp = ((CBBItem)cbbSP.SelectedItem).ID;
-            lbDonGia.Text = BLL_SanPham.Instance.GetSanPhamByID(idsp).DonGiaSP.ToString();
-        }
+     
         private void txtSo_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))

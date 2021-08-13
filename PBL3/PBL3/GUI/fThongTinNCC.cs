@@ -41,6 +41,7 @@ namespace PBL3.GUI
         {
             fThongTinNCC_f2 f = new fThongTinNCC_f2(null);
             f.Show();
+            f.sd = new fThongTinNCC_f2.ShowDelegate(ShowNCC);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -80,6 +81,7 @@ namespace PBL3.GUI
                 string IDNCC = dgvNCC.SelectedRows[0].Cells["idncc"].Value.ToString();
                 fThongTinNCC_f2 f = new fThongTinNCC_f2(IDNCC);
                 f.Show();
+                f.sd = new fThongTinNCC_f2.ShowDelegate(ShowNCC);
             }
             else
             {

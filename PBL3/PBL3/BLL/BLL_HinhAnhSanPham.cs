@@ -36,6 +36,16 @@ namespace PBL3.BLL
             }
             return Link;
         }
+        //public HinhAnhSanPham GetHASPByIDSP(string IDSP)
+        //{
+        //    HinhAnhSanPham isp = new HinhAnhSanPham();
+        //    foreach(HinhAnhSanPham i in DAL_HinhAnhSanPham.Instance.GetAllHASP())
+        //    {
+        //        if (IDSP == i.IDSP)
+        //            isp = i;
+        //    }
+        //    return isp;
+        //}
         public bool ExecuteDB_BLL(HinhAnhSanPham ISP)
         {
             bool check = false;

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace PBL3.GUI
 {
@@ -17,6 +18,23 @@ namespace PBL3.GUI
         public fThongKe()
         {
             InitializeComponent();
+            SetCBB();
+            
+        }
+        public void SetCBB()
+        {
+            List<int> year = new List<int>();
+            
+            foreach(DonHangBan i in BLL_DonHangBan.Instance.GetAllDonHangBan_BLL())
+            {
+                year.Add(i.NgayBan.Year);
+            }
+            year.Sort();
+            foreach(int i in year.Distinct())
+            {
+                cbbYear.Items.Add(i);
+            }
+            cbbYear.SelectedIndex = 0;
         }
         public string ChuyenDinhDang(double d)
         {
@@ -86,6 +104,57 @@ namespace PBL3.GUI
             lbNVbest.Text = BLL_NhanVien.Instance.GetNhanVienByID(BLL_DonHangBan.Instance.GetIDNVBanMax(lDHB_All)).TenNV;
             
             
+        }
+        public void Chart(int year)
+        {
+            //Bieu do doanh thu
+            List<DonHangBan> l = new List<DonHangBan>();
+            double tongtien = 0;
+            int i = 1;
+            chThongKe.ChartAreas[0].AxisX.Interval = 1;
+            chThongKe.ChartAreas[0].AxisX.Title = "Tháng";
+            while(i < 12)
+            {
+                l = BLL_DonHangBan.Instance.GetDonHangBanByDate_BLL(new DateTime(year, i, 1), new DateTime(year, i + 1, 1));
+                tongtien = BLL_DonHangBan.Instance.GetTongTienByDate_DHB_BLL(l);
+                chThongKe.Series[0].Points.AddXY(i, tongtien / 1000);
+                i++;
+            }
+
+            //Bieu do nhan vien
+            double tienban = 0;
+            //reset lai bieu do
+            chNhanVien.Series.Clear();
+            chNhanVien.Series.Add("NV Ban");
+            chNhanVien.Series[0].ChartType = SeriesChartType.Pie;
+            
+            
+            foreach (NhanVien nv in BLL_NhanVien.Instance.GetAllNhanVien_BLL())
+            {
+                tienban = BLL_DonHangBan.Instance.GetTongTienByIDNV(nv.IDNV, BLL_DonHangBan.Instance.GetAllDonHangBan_BLL());
+                chNhanVien.Series[0].Points.AddXY(nv.IDNV, tienban);
+            }
+        }
+        public void ShowIDNV()
+        {
+            dgvNV.DataSource = BLL_NhanVien.Instance.GetAllNhanVien_BLL();
+            dgvNV.Columns[2].Visible = false;
+            dgvNV.Columns[3].Visible = false;
+            dgvNV.Columns[4].Visible = false;
+            dgvNV.Columns[5].Visible = false;
+        }
+        private void btnShowChart_Click(object sender, EventArgs e)
+        {
+            pnShowChart.Visible = !pnShowChart.Visible;
+
+            if (pnShowChart.Visible == true)
+            {
+                btnShowChart.Text = "Thống kê chi tiết";
+            }
+            else btnShowChart.Text = "Thống kê theo sơ đồ";
+
+            ShowIDNV();
+            Chart(Convert.ToInt32(cbbYear.SelectedItem));
         }
     }
 }

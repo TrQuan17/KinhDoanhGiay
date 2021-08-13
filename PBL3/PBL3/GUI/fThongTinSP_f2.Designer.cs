@@ -37,7 +37,7 @@ namespace PBL3.GUI
             this.label1 = new System.Windows.Forms.Label();
             this.btnOK = new System.Windows.Forms.Button();
             this.picSP = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtFileName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtDonGia = new System.Windows.Forms.TextBox();
             this.lbErSize = new System.Windows.Forms.Label();
@@ -45,6 +45,8 @@ namespace PBL3.GUI
             this.lbTitle = new System.Windows.Forms.Label();
             this.picTitle = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtSL = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picSP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTitle)).BeginInit();
             this.SuspendLayout();
@@ -140,13 +142,13 @@ namespace PBL3.GUI
             this.picSP.TabStop = false;
             this.picSP.Click += new System.EventHandler(this.picSP_Click);
             // 
-            // textBox1
+            // txtFileName
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.textBox1.Location = new System.Drawing.Point(615, 239);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(193, 21);
-            this.textBox1.TabIndex = 82;
+            this.txtFileName.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.txtFileName.Location = new System.Drawing.Point(615, 239);
+            this.txtFileName.Name = "txtFileName";
+            this.txtFileName.Size = new System.Drawing.Size(193, 21);
+            this.txtFileName.TabIndex = 82;
             // 
             // label5
             // 
@@ -228,18 +230,40 @@ namespace PBL3.GUI
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(238, 268);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 15);
+            this.label4.TabIndex = 88;
+            this.label4.Text = "Số Lượng";
+            // 
+            // txtSL
+            // 
+            this.txtSL.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.txtSL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSL.Enabled = false;
+            this.txtSL.Location = new System.Drawing.Point(356, 268);
+            this.txtSL.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSL.Name = "txtSL";
+            this.txtSL.Size = new System.Drawing.Size(196, 21);
+            this.txtSL.TabIndex = 90;
+            // 
             // fThongTinSP_f2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(824, 352);
+            this.Controls.Add(this.txtSL);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.lbTitle);
             this.Controls.Add(this.picTitle);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lbErDonGia);
             this.Controls.Add(this.lbErSize);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtFileName);
             this.Controls.Add(this.picSP);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.txtSize);
@@ -273,7 +297,7 @@ namespace PBL3.GUI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.PictureBox picSP;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtFileName;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtDonGia;
         private System.Windows.Forms.Label lbErSize;
@@ -281,5 +305,7 @@ namespace PBL3.GUI
         private System.Windows.Forms.Label lbTitle;
         private System.Windows.Forms.PictureBox picTitle;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtSL;
     }
 }

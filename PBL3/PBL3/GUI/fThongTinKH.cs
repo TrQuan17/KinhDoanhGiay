@@ -26,6 +26,7 @@ namespace PBL3.GUI
             string[] tieuchi = { "ID", "Tên", "Giới Tính", "Địa Chỉ" };
             cbbSapXep.Items.AddRange(tieuchi);
         }
+        
         public void ShowKH()
         {
             dgvKH.DataSource = BLL_KhachHang.Instance.GetAllKhachHang_BLL(); 
@@ -39,6 +40,7 @@ namespace PBL3.GUI
         {
             fThongTinKH_f2 f = new fThongTinKH_f2(null);
             f.Show();
+            f.sd = new fThongTinKH_f2.ShowDelegate(ShowKH);
         }
         private void btnEdit_Click(object sender, EventArgs e)
         {
@@ -47,6 +49,7 @@ namespace PBL3.GUI
                 string IDKH = dgvKH.SelectedRows[0].Cells["idkh"].Value.ToString();
                 fThongTinKH_f2 f = new fThongTinKH_f2(IDKH);
                 f.Show();
+                f.sd = new fThongTinKH_f2.ShowDelegate(ShowKH);
             }
             else
             {

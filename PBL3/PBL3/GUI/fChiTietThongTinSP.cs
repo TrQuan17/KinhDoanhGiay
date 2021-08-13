@@ -15,7 +15,7 @@ namespace PBL3.GUI
     public partial class fChiTietThongTinSP : Form
     {
         public string IDSP { get; set; }
-        public static string DuongDan = "C:/Users/Admin/Downloads/PBL3/PBL_Image/";
+        public static string DuongDan = @"C:/Users/Admin/Desktop/GitHub/KinhDoanhGiay/PBL3/PBL_Image/";
         public fChiTietThongTinSP(string s)
         {
             InitializeComponent();

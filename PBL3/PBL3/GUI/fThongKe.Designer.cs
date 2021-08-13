@@ -29,6 +29,13 @@ namespace PBL3.GUI
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.dgvDonHang = new System.Windows.Forms.DataGridView();
             this.dtpStart = new System.Windows.Forms.DateTimePicker();
             this.dtpEnd = new System.Windows.Forms.DateTimePicker();
@@ -48,9 +55,21 @@ namespace PBL3.GUI
             this.lbHot = new System.Windows.Forms.Label();
             this.lbMin = new System.Windows.Forms.Label();
             this.lbMax = new System.Windows.Forms.Label();
+            this.pnShowChart = new System.Windows.Forms.Panel();
+            this.dgvNV = new System.Windows.Forms.DataGridView();
+            this.chNhanVien = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chThongKe = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btnShowChart = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbbYear = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDonHang)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.pnShowChart.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chNhanVien)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chThongKe)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvDonHang
@@ -60,7 +79,7 @@ namespace PBL3.GUI
             this.dgvDonHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDonHang.Location = new System.Drawing.Point(79, 220);
             this.dgvDonHang.Name = "dgvDonHang";
-            this.dgvDonHang.Size = new System.Drawing.Size(820, 186);
+            this.dgvDonHang.Size = new System.Drawing.Size(898, 186);
             this.dgvDonHang.TabIndex = 0;
             // 
             // dtpStart
@@ -181,7 +200,7 @@ namespace PBL3.GUI
             this.groupBox2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(470, 14);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(429, 182);
+            this.groupBox2.Size = new System.Drawing.Size(507, 182);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thống kê chi tiết";
@@ -262,13 +281,120 @@ namespace PBL3.GUI
             this.lbMax.TabIndex = 0;
             this.lbMax.Text = "......";
             // 
+            // pnShowChart
+            // 
+            this.pnShowChart.Controls.Add(this.label5);
+            this.pnShowChart.Controls.Add(this.dgvNV);
+            this.pnShowChart.Controls.Add(this.chNhanVien);
+            this.pnShowChart.Controls.Add(this.chThongKe);
+            this.pnShowChart.Location = new System.Drawing.Point(0, 1);
+            this.pnShowChart.Name = "pnShowChart";
+            this.pnShowChart.Size = new System.Drawing.Size(1009, 405);
+            this.pnShowChart.TabIndex = 14;
+            this.pnShowChart.Visible = false;
+            // 
+            // dgvNV
+            // 
+            this.dgvNV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvNV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNV.Location = new System.Drawing.Point(574, 286);
+            this.dgvNV.Name = "dgvNV";
+            this.dgvNV.Size = new System.Drawing.Size(423, 91);
+            this.dgvNV.TabIndex = 3;
+            // 
+            // chNhanVien
+            // 
+            this.chNhanVien.BorderlineColor = System.Drawing.Color.Black;
+            chartArea1.Name = "ChartArea1";
+            this.chNhanVien.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chNhanVien.Legends.Add(legend1);
+            this.chNhanVien.Location = new System.Drawing.Point(573, 43);
+            this.chNhanVien.Name = "chNhanVien";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            series1.XAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            series1.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            this.chNhanVien.Series.Add(series1);
+            this.chNhanVien.Size = new System.Drawing.Size(424, 237);
+            this.chNhanVien.TabIndex = 2;
+            this.chNhanVien.Text = "chart1";
+            // 
+            // chThongKe
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chThongKe.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chThongKe.Legends.Add(legend2);
+            this.chThongKe.Location = new System.Drawing.Point(11, 13);
+            this.chThongKe.Name = "chThongKe";
+            series2.BorderColor = System.Drawing.Color.Black;
+            series2.ChartArea = "ChartArea1";
+            series2.Font = new System.Drawing.Font("Arial", 8F);
+            series2.Legend = "Legend1";
+            series2.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            series2.MarkerBorderWidth = 2;
+            series2.Name = "Doanh Thu\\n(Nghìn VNĐ)";
+            this.chThongKe.Series.Add(series2);
+            this.chThongKe.Size = new System.Drawing.Size(556, 364);
+            this.chThongKe.TabIndex = 1;
+            this.chThongKe.Text = "chart1";
+            title1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            title1.Name = "Title1";
+            title1.Text = "Doanh Thu Bán Hàng Mỗi Tháng Trong Năm";
+            this.chThongKe.Titles.Add(title1);
+            // 
+            // btnShowChart
+            // 
+            this.btnShowChart.Location = new System.Drawing.Point(616, 427);
+            this.btnShowChart.Name = "btnShowChart";
+            this.btnShowChart.Size = new System.Drawing.Size(172, 23);
+            this.btnShowChart.TabIndex = 15;
+            this.btnShowChart.Text = "Thống kê theo sơ đồ";
+            this.btnShowChart.UseVisualStyleBackColor = true;
+            this.btnShowChart.Click += new System.EventHandler(this.btnShowChart_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(808, 431);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(33, 15);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Năm";
+            // 
+            // cbbYear
+            // 
+            this.cbbYear.FormattingEnabled = true;
+            this.cbbYear.Location = new System.Drawing.Point(847, 426);
+            this.cbbYear.Name = "cbbYear";
+            this.cbbYear.Size = new System.Drawing.Size(103, 23);
+            this.cbbYear.TabIndex = 17;
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.White;
+            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(573, 13);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(424, 28);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Doanh Thu Bán Hàng Của Mỗi Nhân Viên";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // fThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::PBL3.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(933, 488);
+            this.ClientSize = new System.Drawing.Size(1010, 476);
+            this.Controls.Add(this.cbbYear);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btnShowChart);
+            this.Controls.Add(this.pnShowChart);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnAll);
             this.Controls.Add(this.label4);
@@ -285,6 +411,10 @@ namespace PBL3.GUI
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.pnShowChart.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chNhanVien)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chThongKe)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -311,5 +441,13 @@ namespace PBL3.GUI
         private System.Windows.Forms.Label lbMax;
         private System.Windows.Forms.Label lbNVbest;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Panel pnShowChart;
+        private System.Windows.Forms.Button btnShowChart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chThongKe;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbbYear;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chNhanVien;
+        private System.Windows.Forms.DataGridView dgvNV;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -40,6 +40,7 @@ namespace PBL3.GUI
         {
             fThongTinNV_f2 f = new fThongTinNV_f2(null);
             f.Show();
+            f.sd = new fThongTinNV_f2.ShowDelegate(ShowNV);
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -49,6 +50,7 @@ namespace PBL3.GUI
                 string IDNV = dgvNV.SelectedRows[0].Cells["idnv"].Value.ToString();
                 fThongTinNV_f2 f = new fThongTinNV_f2(IDNV);
                 f.Show();
+                f.sd = new fThongTinNV_f2.ShowDelegate(ShowNV);
             }
             else
             {

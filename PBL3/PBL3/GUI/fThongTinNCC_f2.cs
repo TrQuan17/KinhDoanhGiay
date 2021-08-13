@@ -14,6 +14,8 @@ namespace PBL3.GUI
 {
     public partial class fThongTinNCC_f2 : Form
     {
+        public delegate void ShowDelegate();
+        public ShowDelegate sd { get; set; }
         public string IDNCC { get; set; }
         public fThongTinNCC_f2(string m)
         {
@@ -53,6 +55,7 @@ namespace PBL3.GUI
                 bool check = BLL_NhaCungCap.Instance.ExecuteDB_BLL(NCC);
                 if (check == true)
                 {
+                    sd();
                     this.Close();
                     MessageBox.Show("Đã Lưu !", "Information",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);

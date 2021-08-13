@@ -46,7 +46,7 @@ namespace PBL3.GUI
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lbDonGia = new System.Windows.Forms.Label();
+            this.txtGiaNhap = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cbbSP = new System.Windows.Forms.ComboBox();
             this.btnXoaSP = new System.Windows.Forms.Button();
@@ -287,7 +287,7 @@ namespace PBL3.GUI
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.White;
-            this.groupBox2.Controls.Add(this.lbDonGia);
+            this.groupBox2.Controls.Add(this.txtGiaNhap);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.cbbSP);
             this.groupBox2.Controls.Add(this.btnXoaSP);
@@ -303,14 +303,15 @@ namespace PBL3.GUI
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "SẢN PHẨM";
             // 
-            // lbDonGia
+            // txtGiaNhap
             // 
-            this.lbDonGia.AutoSize = true;
-            this.lbDonGia.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDonGia.Location = new System.Drawing.Point(135, 66);
-            this.lbDonGia.Name = "lbDonGia";
-            this.lbDonGia.Size = new System.Drawing.Size(0, 15);
-            this.lbDonGia.TabIndex = 71;
+            this.txtGiaNhap.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.txtGiaNhap.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtGiaNhap.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGiaNhap.Location = new System.Drawing.Point(138, 66);
+            this.txtGiaNhap.Name = "txtGiaNhap";
+            this.txtGiaNhap.Size = new System.Drawing.Size(177, 21);
+            this.txtGiaNhap.TabIndex = 73;
             // 
             // label7
             // 
@@ -332,7 +333,6 @@ namespace PBL3.GUI
             this.cbbSP.Name = "cbbSP";
             this.cbbSP.Size = new System.Drawing.Size(177, 23);
             this.cbbSP.TabIndex = 69;
-            this.cbbSP.SelectedValueChanged += new System.EventHandler(this.cbbSP_SelectedValueChanged);
             // 
             // btnXoaSP
             // 
@@ -551,7 +551,6 @@ namespace PBL3.GUI
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label lbDonGia;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbbSP;
         private System.Windows.Forms.Button btnXoaSP;
@@ -559,5 +558,6 @@ namespace PBL3.GUI
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown numUDSL;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtGiaNhap;
     }
 }

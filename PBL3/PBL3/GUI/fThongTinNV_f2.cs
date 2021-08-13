@@ -14,6 +14,8 @@ namespace PBL3.GUI
 {
     public partial class fThongTinNV_f2 : Form
     {
+        public delegate void ShowDelegate();
+         public ShowDelegate sd { get; set; }
         public string IDNV { get; set; }
         public fThongTinNV_f2(string m)
         {
@@ -74,6 +76,7 @@ namespace PBL3.GUI
                 bool check = BLL_NhanVien.Instance.ExecuteDB_BLL(NV);
                 if (check == true)
                 {
+                    sd();
                     this.Close();
                     MessageBox.Show("Đã Lưu !", "Information",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
