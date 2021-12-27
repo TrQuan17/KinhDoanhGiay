@@ -54,8 +54,10 @@ namespace PBL3.GUI
                     lbErSize.Text = "Giá giày không hợp lệ";
                     return;
                 }
+                
                 lbErSize.Text = "";
                 lbErDonGia.Text = "";
+                txtSL.Text = "0";
                 SanPham SP = new SanPham
                 {
                     IDSP = txtIDSP.Text,
